@@ -1,0 +1,54 @@
+server:
+  port: 81
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://101.42.246.11:3306/se?serverTimezone=UTC
+      username: admin
+      password: password
+
+  mail:
+    host: smtp.163.com
+    port: 465
+    username: 13257365915@163.com
+    password: BZYORSUKFNFVYXXK
+    protocol: smtps
+
+  redis:
+    host: localhost
+    port: 6379
+
+  freemarker:
+    check-template-location: false
+    profiles:
+      active: dev
+    jackson:
+      time-zone: GMT+8
+    data:
+      redis:
+        repositories:
+          enabled: false
+    suffix: .html
+    template-loader-path: classpath:/templates/
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    #    日志信息（便于调试）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+cos:
+  baseUrl: https://ljx-bucket-1310587083.cos.ap-beijing.myqcloud.com
+  accessKey: AKID61g5F8k59wRfcIhqiIbdPu85lAI9j26t
+  secretKey: Yp9G94k9IBpDKCo9D1YonWyA5j6D3cv1
+  regionName: ap-beijing
+  bucketName: ljx-bucket-1310587083
+  folderPrefix: /files
